@@ -2,7 +2,16 @@ package spotify
 
 import (
 	"github.com/dghubble/sling"
+	"golang.org/x/oauth2"
 )
+
+// URI identifies an artist, album, track, or category.  For example,
+// spotify:track:6rqhFgbbKwnb9MLmUQDhG6
+type URI string
+
+// ID is a base-62 identifier for an artist, track, album, etc.
+// It can be found at the end of a spotify.URI.
+type ID string
 
 type Client struct {
 	base     *sling.Sling
@@ -22,8 +31,11 @@ type service struct {
 	client *Client
 }
 
-func NewClient() *Client {
-	base := sling.New().Base("https://api.spotify.com/v1/")
+func NewClient(accessToken string) *Client {
+	config := &oauth2.Config{}
+	token := &oauth2.Token{AccessToken: accessToken}
+	httpClient := config.Client(oauth2.NoContext, token)
+	base := sling.New().Base("https://api.spotify.com/v1/").Client(httpClient)
 	c := &Client{}
 	c.base = base
 	c.common.client = c
