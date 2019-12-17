@@ -1,4 +1,4 @@
-module go-spotify
+module github.com/tsirysndr/go-spotify
 
 go 1.13
 
