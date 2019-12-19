@@ -1,9 +1,5 @@
 package spotify
 
-import (
-	"fmt"
-)
-
 type UserService service
 
 type SpfError struct {
@@ -41,7 +37,7 @@ type Img struct {
 	Width  string `json:"width"`
 }
 
-func (c *UserService) UserProfile(id string) (interface{}, error) {
+func (c *UserService) UserProfile(Id string) (interface{}, error) {
 	var err error
 	res := new(Profile)
 	spfErr := new(SpfError)
@@ -52,5 +48,4 @@ func (c *UserService) UserProfile(id string) (interface{}, error) {
 	}
 
 	return res, err
-
 }
