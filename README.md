@@ -24,7 +24,7 @@ import "github.com/tsirysndr/go-spotify"
 Construct a new Spotify client, then use the various services on the client to access different parts of the Spotify API. For example:
 
 ```Go
-client := spotify.NewClient(<YOUR TOKEN AUTHORIZATION>)
+client := spotify.NewClient("<YOUR TOKEN AUTHORIZATION>")
 ```
 
 ## Author
