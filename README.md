@@ -1,14 +1,14 @@
 <h1 align="center">Welcome to go-spotify 👋 *** Work In Progress ***</h1>
-<p>
-  <a href="https://twitter.com/tsiry_sndr">
-    <img alt="Twitter: tsiry_sndr" src="https://img.shields.io/twitter/follow/tsiry_sndr.svg?style=social" target="_blank" />
-  </a>
+<p align="center">
   <a href="https://github.com/tsirysndr/go-spotify/commits/master">
     <img src="https://img.shields.io/github/last-commit/tsirysndr/go-spotify.svg" target="_blank" />
   </a>
   <img alt="GitHub go.mod Go version" src="https://img.shields.io/github/go-mod/go-version/tsirysndr/go-spotify">
   <a href="https://github.com/tsirysndr/go-spotify/blob/master/LICENSE">
     <img alt="License: BSD" src="https://img.shields.io/badge/license-BSD-green.svg" target="_blank" />
+  </a>
+  <a href="https://twitter.com/tsiry_sndr">
+    <img alt="Twitter: tsiry_sndr" src="https://img.shields.io/twitter/follow/tsiry_sndr.svg?style=social" target="_blank" />
   </a>
 </p>
 
