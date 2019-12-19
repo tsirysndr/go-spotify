@@ -37,7 +37,7 @@ type Img struct {
 	Width  string `json:"width"`
 }
 
-func (c *UserService) UserProfile(Id string) (*Profile, error) {
+func (c *UserService) UserProfile(ID string) (*Profile, error) {
 	var err error
 	resp := new(Profile)
 	c.client.base.Path("users/").Get(ID).Receive(resp, err)
