@@ -20,13 +20,13 @@
 
 > go-spotify is a Go client library for accessing the [Spotify API](https://developer.spotify.com/web-api/)
 
-## Install
+## 🚚 Install
 
 ```sh
 go get github.com/tsirysndr/go-spotify
 ```
 
-## Usage
+## 🚀 Usage
 
 Import the package into your project.
 
