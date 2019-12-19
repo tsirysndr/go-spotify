@@ -15,10 +15,10 @@ type Error struct {
 	Message string `json:"message"`
 }
 
-type ResultProfile struct {
+type Profile struct {
 	DisplayName  string      `json:"display_name"`
-	ExternalUrls spotifyUri  `json:"external_urls"`
-	Followers    dataFlowers `json:"followers"`
+	SpotifyUri   spotifyUri  `json:"external_urls"`
+	Followers    Followers  `json:"followers"`
 	Href         string      `json:"href"`
 	Id           string      `json:"id"`
 	Images       []Img       `json:"images"`
@@ -30,7 +30,7 @@ type spotifyUri struct {
 	Spotify string `json:"spotify"`
 }
 
-type dataFlowers struct {
+type Followers  struct {
 	Href  string `json:"href"`
 	Total int    `json:"total"`
 }
@@ -43,10 +43,9 @@ type Img struct {
 
 func (c *UserService) UserProfile(id string) (interface{}, error) {
 	var err error
-	res := new(ResultProfile)
+	res := new(Profile)
 	spfErr := new(SpfError)
-	path := fmt.Sprintf("%s/%s", "users", id)
-	resp, err := c.client.base.New().Get(path).Receive(res, spfErr)
+	resp, err := c.client.base.Path("users/").Get(ID).Receive(res, spfErr)
 
 	if resp.StatusCode != 200 {
 		return spfErr, err
