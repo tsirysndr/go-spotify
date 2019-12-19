@@ -1,4 +1,5 @@
-<h1 align="center">Welcome to go-spotify 👋 *** Work In Progress ***</h1>
+<h1 align="center">Welcome to go-spotify 👋</h1>
+<h3 align="center">*** Work In Progress ***</h3>
 <p align="center">
   <a href="https://github.com/tsirysndr/go-spotify/commits/master">
     <img src="https://img.shields.io/github/last-commit/tsirysndr/go-spotify.svg" target="_blank" />
