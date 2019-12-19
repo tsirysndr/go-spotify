@@ -4,6 +4,7 @@
   <a href="https://github.com/tsirysndr/go-spotify/commits/master">
     <img src="https://img.shields.io/github/last-commit/tsirysndr/go-spotify.svg" target="_blank" />
   </a>
+  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/tsirysndr/go-spotify">
   <img alt="GitHub go.mod Go version" src="https://img.shields.io/github/go-mod/go-version/tsirysndr/go-spotify">
   <a href="https://github.com/tsirysndr/go-spotify/blob/master/LICENSE">
     <img alt="License: BSD" src="https://img.shields.io/badge/license-BSD-green.svg" target="_blank" />
