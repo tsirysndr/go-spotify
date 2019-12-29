@@ -3,11 +3,11 @@ package spotify
 type ArtistService service
 
 type Artist struct {
-	Name string `json:"name"`
-	ID   ID     `json:"id"`
+	Name string `json:"name,omitempty"`
+	ID   ID     `json:"id,omitempty"`
 	// The Spotify URI for the artist.
-	URI URI `json:"uri"`
+	URI URI `json:"uri,omitempty"`
 	// A link to the Web API enpoint providing full details of the artist.
-	Endpoint     string            `json:"href"`
-	ExternalURLs map[string]string `json:"external_urls"`
+	Endpoint     string            `json:"href,omitempty"`
+	ExternalURLs map[string]string `json:"external_urls,omitempty"`
 }

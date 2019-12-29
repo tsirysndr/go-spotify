@@ -7,16 +7,16 @@ type TrackParams struct {
 }
 
 type Track struct {
-	Artists []Artist `json:"artists"`
+	Artists []Artist `json:"artists,omitempty"`
 	Album   *struct {
-		AlbumType string `json:"album_type"`
+		AlbumType string `json:"album_type,omitempty"`
 	} `json:"album,omitempty"`
-	ExternalIDs map[string]string `json:"external_ids"`
-	Popularity  int               `json:"popularity"`
+	ExternalIDs map[string]string `json:"external_ids,omitempty"`
+	Popularity  int               `json:"popularity,omitempty"`
 }
 
 type TracksResult struct {
-	Tracks []Track `json:"tracks"`
+	Tracks []Track `json:"tracks,omitempty"`
 }
 
 func (s *TrackService) ListTracks(ids string) (*TracksResult, error) {

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 
 	"github.com/tsirysndr/go-spotify"
@@ -8,8 +9,9 @@ import (
 
 func main() {
 	// Replace with your ACCESS TOKEN
-	token := "BQAnXnzb2stOGUJ4qdp3H800Dc-NJ_Gb-cXzCnR9BuyNQvT_Eyk2D2_otMKaEGeguiPDLQs1Z2Y8ULuGjZHGpbOXcsYtDgr8Jic_skIJbaYCkGuaZIcnU48dADcZ-R0TS5DrLertSu1HmNVsD5WOqyqbnqIl1Dc__A"
+	token := "BQD75iJHGK7OKnzYSs0Tw5MwGqwzofvx8eLm_QtURyK-WeyZZtnrIEOX7DdZwgVky4ItcDL7mvyuKmNOdptJ2x2rPMpckE85A6MfqVw9qcEGTTNkf5zC5mWKbN31P7klH7C1JlAbJCPH5i0gnlqdASJscpk_yes5nA"
 	client := spotify.NewClient(token)
-	result, err := client.Track.ListTracks("6rqhFgbbKwnb9MLmUQDhG6")
-	fmt.Println(result, err)
+	result, _ := client.Track.ListTracks("6rqhFgbbKwnb9MLmUQDhG6")
+	tracks, _ := json.Marshal(result)
+	fmt.Println(string(tracks))
 }
