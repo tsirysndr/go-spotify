@@ -3,38 +3,38 @@ package spotify
 type UserService service
 
 type SpfError struct {
-	Error `json:"error"`
+	Error `json:"error,omitempty"`
 }
 
 type Error struct {
-	Status  int    `json:"status"`
-	Message string `json:"message"`
+	Status  int    `json:"status,omitempty"`
+	Message string `json:"message,omitempty"`
 }
 
 type Profile struct {
-	DisplayName  	string         `json:"display_name"`
-	ExternalURLs    ExternalURLs    `json:"external_urls"`
-	Followers    	Followers  	`json:"followers"`
-	Href         	string      	`json:"href"`
-	Id           	string      	`json:"id"`
-	Images       	[]Img       	`json:"images"`
-	Type         	string      	`json:"type"`
-	Uri          	string      	`json:"uri"`
+	DisplayName  	string         `json:"display_name,omitempty"`
+	ExternalURLs    ExternalURLs    `json:"external_urls,omitempty"`
+	Followers    	Followers  	`json:"followers,omitempty"`
+	Href         	string      	`json:"href,omitempty"`
+	Id           	string      	`json:"id,omitempty"`
+	Images       	[]Img       	`json:"images,omitempty"`
+	Type         	string      	`json:"type,omitempty"`
+	Uri          	string      	`json:"uri,omitempty"`
 }
 
 type ExternalURLs struct {
-	Spotify string `json:"spotify"`
+	Spotify string `json:"spotify,omitempty"`
 }
 
 type Followers  struct {
-	Href  string `json:"href"`
-	Total int    `json:"total"`
+	Href  string `json:"href,omitempty"`
+	Total int    `json:"total,omitempty"`
 }
 
 type Img struct {
-	Height string `json:"height"`
-	Url    string `json:"url"`
-	Width  string `json:"width"`
+	Height string `json:"height,omitempty"`
+	Url    string `json:"url,omitempty"`
+	Width  string `json:"width,omitempty"`
 }
 
 func (c *UserService) UserProfile(ID string) (*Profile, error) {
