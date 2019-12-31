@@ -9,7 +9,7 @@ import (
 
 func main() {
 	// Replace with your ACCESS TOKEN
-	token := "BQD75iJHGK7OKnzYSs0Tw5MwGqwzofvx8eLm_QtURyK-WeyZZtnrIEOX7DdZwgVky4ItcDL7mvyuKmNOdptJ2x2rPMpckE85A6MfqVw9qcEGTTNkf5zC5mWKbN31P7klH7C1JlAbJCPH5i0gnlqdASJscpk_yes5nA"
+	token := "BQDid21lB1igrlfPLB5pmWWr31BSeeKgJU8YJf1lQju6MhJLlzn097bgULQA3ATzEzhHlgzHjGCHxn9lKpIuBsO907agI9r8Bzka0OQtn1DlMN5Y-cuZPEuNQwNgxE1rEjLomYVw6fE5NmTBq4bVegeFnM3pGVqcyQ"
 	client := spotify.NewClient(token)
 	result, _ := client.Track.ListTracks("6rqhFgbbKwnb9MLmUQDhG6")
 	tracks, _ := json.Marshal(result)
