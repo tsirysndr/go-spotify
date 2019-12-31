@@ -19,7 +19,7 @@ type TracksResult struct {
 	Tracks []Track `json:"tracks,omitempty"`
 }
 
-func (s *TrackService) ListTracks(ids string) (*TracksResult, error) {
+func (s *TrackService) List(ids string) (*TracksResult, error) {
 	params := &TrackParams{Ids: ids}
 
 	var err error
