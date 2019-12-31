@@ -38,7 +38,7 @@ Construct a new Spotify client, then use the various services on the client to a
 
 ```Go
 client := spotify.NewClient("<YOUR TOKEN AUTHORIZATION>")
-result, err := client.Track.ListTracks("6rqhFgbbKwnb9MLmUQDhG6")
+result, err := client.Track.List("6rqhFgbbKwnb9MLmUQDhG6")
 ```
 
 ## Author
