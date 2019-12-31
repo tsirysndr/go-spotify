@@ -12,21 +12,21 @@ type Error struct {
 }
 
 type Profile struct {
-	DisplayName  	string         `json:"display_name,omitempty"`
-	ExternalURLs    ExternalURLs    `json:"external_urls,omitempty"`
-	Followers    	Followers  	`json:"followers,omitempty"`
-	Href         	string      	`json:"href,omitempty"`
-	Id           	string      	`json:"id,omitempty"`
-	Images       	[]Img       	`json:"images,omitempty"`
-	Type         	string      	`json:"type,omitempty"`
-	Uri          	string      	`json:"uri,omitempty"`
+	DisplayName  string       `json:"display_name,omitempty"`
+	ExternalURLs ExternalURLs `json:"external_urls,omitempty"`
+	Followers    Followers    `json:"followers,omitempty"`
+	Href         string       `json:"href,omitempty"`
+	Id           string       `json:"id,omitempty"`
+	Images       []Img        `json:"images,omitempty"`
+	Type         string       `json:"type,omitempty"`
+	Uri          string       `json:"uri,omitempty"`
 }
 
 type ExternalURLs struct {
 	Spotify string `json:"spotify,omitempty"`
 }
 
-type Followers  struct {
+type Followers struct {
 	Href  string `json:"href,omitempty"`
 	Total int    `json:"total,omitempty"`
 }
@@ -37,10 +37,9 @@ type Img struct {
 	Width  string `json:"width,omitempty"`
 }
 
-func (c *UserService) UserProfile(ID string) (*Profile, error) {
+func (s *UserService) GetProfile(ID string) (*Profile, error) {
 	var err error
 	resp := new(Profile)
-	c.client.base.Path("users/").Get(ID).Receive(resp, err)
-	
+	s.client.base.Path("users/").Get(ID).Receive(resp, err)
 	return resp, err
 }

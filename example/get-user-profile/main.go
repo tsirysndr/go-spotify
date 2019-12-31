@@ -13,7 +13,7 @@ func main() {
 	client := spotify.NewClient(token)
 	// User id
 	id := "lyp9kipowzwqehy4ppj5owl7p"
-	res, _ := client.User.UserProfile(id)
+	res, _ := client.User.GetProfile(id)
 	user, _ := json.Marshal(res)
 	fmt.Println(string(user))
 }
