@@ -21,6 +21,7 @@ type Track struct {
 	PreviewURL  string       `json:"preview_url,omitempty"`
 	TrackNumber int          `json:"track_number,omitempty"`
 	Type        string       `json:"type,omitempty"`
+	URI         string       `json:"uri,omitempty"`
 }
 
 type TracksResult struct {
