@@ -24,6 +24,11 @@ type Track struct {
 	URI         string       `json:"uri,omitempty"`
 }
 
+type Tracks struct {
+	Href  string  `json:"href,omitempty"`
+	Items []Track `json:"items,omitempty"`
+}
+
 type TracksResult struct {
 	Tracks []Track `json:"tracks,omitempty"`
 }

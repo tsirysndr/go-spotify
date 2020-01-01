@@ -1,5 +1,7 @@
 package spotify
 
+import "fmt"
+
 type AlbumService service
 
 // album object (full)
@@ -21,12 +23,9 @@ type Album struct {
 	ReleaseDate          string        `json:"release_date,omitempty"`
 	ReleaseDatePrecision string        `json:"release_date_precision,omitempty"`
 	TotalTracks          int           `json:"total_tracks,omitempty"`
-	Tracks               *struct {
-		Href  string  `json:"href,omitempty"`
-		Items []Track `json:"items,omitempty"`
-	} `json:"tracks,omitempty"`
-	Type string `json:"type,omitempty"`
-	URI  string `json:"uri,omitempty"`
+	Tracks               *Tracks       `json:"tracks,omitempty"`
+	Type                 string        `json:"type,omitempty"`
+	URI                  string        `json:"uri,omitempty"`
 }
 
 type Copyright struct {
@@ -48,6 +47,11 @@ type AlbumParams struct {
 	IDs string `url:"ids,omitempty"`
 }
 
+type PaginationParams struct {
+	Limit  int `url:"limit"`
+	Offset int `url:"offset"`
+}
+
 type AlbumsResult struct {
 	Albums []Album `json:"albums,omitempty"`
 }
@@ -64,5 +68,14 @@ func (s *AlbumService) List(IDs string) (*AlbumsResult, error) {
 	var err error
 	res := &AlbumsResult{}
 	s.client.base.Get("albums").QueryStruct(params).Receive(res, err)
+	return res, err
+}
+
+func (s *AlbumService) GetTracks(ID string, limit, offset int) (*Tracks, error) {
+	var err error
+	params := &PaginationParams{limit, offset}
+	res := new(Tracks)
+	album := fmt.Sprintf("albums/%s/", ID)
+	s.client.base.Path(album).Get("tracks").QueryStruct(params).Receive(res, err)
 	return res, err
 }
