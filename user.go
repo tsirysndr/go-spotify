@@ -12,14 +12,14 @@ type Error struct {
 }
 
 type Profile struct {
-	DisplayName  string       `json:"display_name,omitempty"`
-	ExternalURLs ExternalURLs `json:"external_urls,omitempty"`
-	Followers    Followers    `json:"followers,omitempty"`
-	Href         string       `json:"href,omitempty"`
-	Id           string       `json:"id,omitempty"`
-	Images       []Img        `json:"images,omitempty"`
-	Type         string       `json:"type,omitempty"`
-	Uri          string       `json:"uri,omitempty"`
+	DisplayName  string        `json:"display_name,omitempty"`
+	ExternalURLs *ExternalURLs `json:"external_urls,omitempty"`
+	Followers    *Followers    `json:"followers,omitempty"`
+	Href         string        `json:"href,omitempty"`
+	Id           string        `json:"id,omitempty"`
+	Images       []Img         `json:"images,omitempty"`
+	Type         string        `json:"type,omitempty"`
+	Uri          string        `json:"uri,omitempty"`
 }
 
 type ExternalURLs struct {

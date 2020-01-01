@@ -9,7 +9,7 @@ import (
 
 func main() {
 	// token
-	token := "BQDid21lB1igrlfPLB5pmWWr31BSeeKgJU8YJf1lQju6MhJLlzn097bgULQA3ATzEzhHlgzHjGCHxn9lKpIuBsO907agI9r8Bzka0OQtn1DlMN5Y-cuZPEuNQwNgxE1rEjLomYVw6fE5NmTBq4bVegeFnM3pGVqcyQ"
+	token := "BQBiktRNvkinqA2DNtvoZmTRtZ9u3Vl6sDmSph8nrwTWcMyeom1gA6KL-hCAnEAswq4ZWIvf4Gr88CkJn6wcMmmHnZVKovM_VdDW8bk4LPOd5ayUkTsxzlVvaMvXy3YmFq1qToACa9s8VHJO3onAIvsBBTtwex1EUw"
 	client := spotify.NewClient(token)
 	// User id
 	id := "lyp9kipowzwqehy4ppj5owl7p"
