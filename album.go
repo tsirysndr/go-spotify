@@ -52,6 +52,13 @@ type AlbumsResult struct {
 	Albums []Album `json:"albums,omitempty"`
 }
 
+func (s *AlbumService) Get(ID string) (*Album, error) {
+	var err error
+	res := new(Album)
+	s.client.base.Path("albums/").Get(ID).Receive(res, err)
+	return res, err
+}
+
 func (s *AlbumService) List(IDs string) (*AlbumsResult, error) {
 	params := &AlbumParams{IDs: IDs}
 	var err error
