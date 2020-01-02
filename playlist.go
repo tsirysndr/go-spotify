@@ -1,5 +1,7 @@
 package spotify
 
+import "fmt"
+
 type PlaylistService service
 
 type Playlist struct {
@@ -34,5 +36,13 @@ func (s *PlaylistService) Get(ID string) (*Playlist, error) {
 	var err error
 	res := new(Playlist)
 	s.client.base.Path("playlists/").Get(ID).Receive(res, err)
+	return res, err
+}
+
+func (s *PlaylistService) GetCoverImages(ID string) (*[]Image, error) {
+	var err error
+	res := new([]Image)
+	playlists := fmt.Sprintf("playlists/%s/", ID)
+	s.client.base.Path(playlists).Get("images").Receive(res, err)
 	return res, err
 }
