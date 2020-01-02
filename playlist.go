@@ -34,6 +34,15 @@ type PlaylistTracks struct {
 	} `json:"items,omitempty"`
 }
 
+type Playlists struct {
+	Href     string     `json:"href,omitempty"`
+	Items    []Playlist `json:"items,omitempty"`
+	Limit    int        `json:"limit,omitempty"`
+	Offset   int        `json:"offset,omitempty"`
+	Previous string     `json:"previous,omitempty"`
+	Total    int        `json:"total,omitempty"`
+}
+
 func (s *PlaylistService) Get(ID string) (*Playlist, error) {
 	var err error
 	res := new(Playlist)
@@ -55,5 +64,14 @@ func (s *PlaylistService) GetTracks(ID string, limit, offset int) (*PlaylistTrac
 	res := new(PlaylistTracks)
 	playlists := fmt.Sprintf("playlists/%s/", ID)
 	s.client.base.Path(playlists).Get("tracks").QueryStruct(params).Receive(res, err)
+	return res, err
+}
+
+func (s *PlaylistService) GetUserPlaylists(userID string, limit, offset int) (*Playlists, error) {
+	var err error
+	params := &PaginationParams{limit, offset}
+	res := new(Playlists)
+	users := fmt.Sprintf("users/%s/", userID)
+	s.client.base.Path(users).Get("playlists").QueryStruct(params).Receive(res, err)
 	return res, err
 }
