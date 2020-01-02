@@ -16,10 +16,10 @@ type Profile struct {
 	ExternalURLs *ExternalURLs `json:"external_urls,omitempty"`
 	Followers    *Followers    `json:"followers,omitempty"`
 	Href         string        `json:"href,omitempty"`
-	Id           string        `json:"id,omitempty"`
+	ID           ID            `json:"id,omitempty"`
 	Images       []Image       `json:"images,omitempty"`
 	Type         string        `json:"type,omitempty"`
-	Uri          string        `json:"uri,omitempty"`
+	URI          URI           `json:"uri,omitempty"`
 }
 
 type ExternalURLs struct {
