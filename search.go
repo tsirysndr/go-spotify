@@ -3,33 +3,9 @@ package spotify
 type SearchService service
 
 type SearchResult struct {
-	Artists *struct {
-		Href     string   `json:"href,omitempty"`
-		Items    []Artist `json:"items,omitempty"`
-		Limit    int      `json:"limit,omitempty"`
-		Next     string   `json:"string,omitempty"`
-		Offset   int      `json:"offset,omitempty"`
-		Previous string   `json:"previous,omitempty"`
-		Total    int      `json:"total,omitempty"`
-	} `json:"artists,omitempty"`
-	Tracks *struct {
-		Href     string  `json:"href,omitempty"`
-		Items    []Track `json:"items,omitempty"`
-		Limit    int     `json:"limit,omitempty"`
-		Next     string  `json:"string,omitempty"`
-		Offset   int     `json:"offset,omitempty"`
-		Previous string  `json:"previous,omitempty"`
-		Total    int     `json:"total,omitempty"`
-	} `json:"tracks,omitempty"`
-	Albums *struct {
-		Href     string  `json:"href,omitempty"`
-		Items    []Album `json:"items,omitempty"`
-		Limit    int     `json:"limit,omitempty"`
-		Next     string  `json:"string,omitempty"`
-		Offset   int     `json:"offset,omitempty"`
-		Previous string  `json:"previous,omitempty"`
-		Total    int     `json:"total,omitempty"`
-	} `json:"albums,omitempty"`
+	Artists *Artists `json:"artists,omitempty"`
+	Tracks  *Tracks  `json:"tracks,omitempty"`
+	Albums  *Artists `json:"albums,omitempty"`
 }
 
 type SearchParams struct {
