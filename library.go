@@ -55,3 +55,11 @@ func (s *LibraryService) CheckCurrentUserSavedTracks(IDs string) (*[]bool, error
 	s.client.base.Path("me/tracks/").Get("contains").QueryStruct(params).Receive(res, err)
 	return res, err
 }
+
+func (s *LibraryService) CheckCurrentUserSavedAlbums(IDs string) (*[]bool, error) {
+	var err error
+	res := new([]bool)
+	params := LibraryParams{IDs}
+	s.client.base.Path("me/albums/").Get("contains").QueryStruct(params).Receive(res, err)
+	return res, err
+}
