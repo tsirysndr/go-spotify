@@ -106,7 +106,7 @@ Currently the following services are supported:
 - [x] Get an Album's Tracks
 - [x] Get an Album
 - [x] Get Several Albums
-- [ ] Search for an Item
+- [x] Search for an Item
 
 ## Author
 
