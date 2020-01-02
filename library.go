@@ -28,6 +28,10 @@ type SavedAlbums struct {
 	Total    int    `json:"total,omitempty"`
 }
 
+type LibraryParams struct {
+	IDs string `url:"ids"`
+}
+
 func (s *LibraryService) GetCurrentUserSavedTracks(limit, offset int) (*SavedTracks, error) {
 	var err error
 	params := &PaginationParams{limit, offset}
@@ -41,5 +45,13 @@ func (s *LibraryService) GetCurrentUserSavedAlbums(limit, offset int) (*SavedAlb
 	params := &PaginationParams{limit, offset}
 	res := new(SavedAlbums)
 	s.client.base.Path("me/").Get("albums").QueryStruct(params).Receive(res, err)
+	return res, err
+}
+
+func (s *LibraryService) CheckCurrentUserSavedTracks(IDs string) (*[]bool, error) {
+	var err error
+	res := new([]bool)
+	params := LibraryParams{IDs}
+	s.client.base.Path("me/tracks/").Get("contains").QueryStruct(params).Receive(res, err)
 	return res, err
 }
