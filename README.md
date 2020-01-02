@@ -78,10 +78,10 @@ Currently the following services are supported:
 - [ ] Get User's Top Artists and Tracks
 - [ ] Remove Albums for Current User
 - [ ] Remove Tracks for Current User
-- [ ] Check Current User's Saved Albums
-- [ ] Check Current User's Saved Tracks
-- [ ] Get Current User's Saved Albums
-- [ ] Get Current User's Saved Tracks 
+- [x] Check Current User's Saved Albums
+- [x] Check Current User's Saved Tracks
+- [x] Get Current User's Saved Albums
+- [x] Get Current User's Saved Tracks 
 - [ ] Save Albums for Current User
 - [ ] Save Tracks for Current User
 - [ ] Unfollow Artists or Users
