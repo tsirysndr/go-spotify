@@ -80,3 +80,10 @@ func (s *TrackService) AudioFeatures(IDs string) (*AudioFeaturesResult, error) {
 	s.client.base.Get("audio-features/").QueryStruct(params).Receive(res, err)
 	return res, err
 }
+
+func (s *TrackService) AudioFeaturesByTrackID(ID string) (*AudioFeatures, error) {
+	var err error
+	res := new(AudioFeatures)
+	s.client.base.Path("audio-features/").Get(ID).Receive(res, err)
+	return res, err
+}
