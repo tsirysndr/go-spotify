@@ -1,5 +1,7 @@
 package spotify
 
+import "fmt"
+
 type ArtistService service
 
 type Artist struct {
@@ -19,6 +21,10 @@ type ArtistParams struct {
 	IDs string `url:"ids,omitempty"`
 }
 
+type CountryParams struct {
+	Country string `url:"country,omitempty"`
+}
+
 type ArtistsResult struct {
 	Artists []Artist `json:"artists,omitempty"`
 }
@@ -35,5 +41,14 @@ func (s *ArtistService) Get(ID string) (*Artist, error) {
 	var err error
 	res := new(Artist)
 	s.client.base.Path("artists/").Get(ID).Receive(res, err)
+	return res, err
+}
+
+func (s *ArtistService) GetTopTracks(ID, country string) (*TracksResult, error) {
+	var err error
+	res := new(TracksResult)
+	params := &CountryParams{country}
+	artists := fmt.Sprintf("artists/%s/", ID)
+	s.client.base.Path(artists).Get("top-tracks").QueryStruct(params).Receive(res, err)
 	return res, err
 }
