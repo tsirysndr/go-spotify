@@ -75,3 +75,11 @@ func (s *PlaylistService) GetUserPlaylists(userID string, limit, offset int) (*P
 	s.client.base.Path(users).Get("playlists").QueryStruct(params).Receive(res, err)
 	return res, err
 }
+
+func (s *PlaylistService) GetCurrentUserPlaylists(limit, offset int) (*Playlists, error) {
+	var err error
+	params := &PaginationParams{limit, offset}
+	res := new(Playlists)
+	s.client.base.Path("me/").Get("playlists").QueryStruct(params).Receive(res, err)
+	return res, err
+}
