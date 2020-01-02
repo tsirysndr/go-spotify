@@ -30,3 +30,10 @@ func (s *ArtistService) List(IDs string) (*ArtistsResult, error) {
 	s.client.base.Get("artists").QueryStruct(params).Receive(res, err)
 	return res, err
 }
+
+func (s *ArtistService) Get(ID string) (*Artist, error) {
+	var err error
+	res := new(Artist)
+	s.client.base.Path("artists/").Get(ID).Receive(res, err)
+	return res, err
+}
