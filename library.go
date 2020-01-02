@@ -1,3 +1,24 @@
 package spotify
 
 type LibraryService service
+
+type SavedTracks struct {
+	Href  string `json:"href,omitempty"`
+	Items []struct {
+		AddedAt string `json:"added_at,omitempty"`
+		Track   *Track `json:"track,omitempty"`
+	} `json:"items,omitempty"`
+	Limit    int    `json:"limit,omitempty"`
+	Next     string `json:"next,omitempty"`
+	Offset   int    `json:"offset,omitempty"`
+	Previous string `json:"previous,omitempty"`
+	Total    int    `json:"total,omitempty"`
+}
+
+func (s *LibraryService) GetCurrentUserSavedTracks(limit, offset int) (*SavedTracks, error) {
+	var err error
+	params := &PaginationParams{limit, offset}
+	res := new(SavedTracks)
+	s.client.base.Path("me/").Get("tracks").QueryStruct(params).Receive(res, err)
+	return res, err
+}
