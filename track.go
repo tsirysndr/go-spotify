@@ -25,8 +25,13 @@ type Track struct {
 }
 
 type Tracks struct {
-	Href  string  `json:"href,omitempty"`
-	Items []Track `json:"items,omitempty"`
+	Href     string  `json:"href,omitempty"`
+	Items    []Track `json:"items,omitempty"`
+	Limit    int     `json:"limit,omitempty"`
+	Next     string  `json:"next,omitempty"`
+	Offset   int     `json:"offset,omitempty"`
+	Previous string  `json:"previous,omitempty"`
+	Total    int     `json:"total,omitempty"`
 }
 
 type TracksResult struct {

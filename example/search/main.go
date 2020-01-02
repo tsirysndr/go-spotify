@@ -9,7 +9,7 @@ import (
 
 func main() {
 	// Replace with your ACCESS TOKEN
-	token := "BQBVlmqz3pvLjgIiimObr-N5lOAgzqFulsG1uYAPFoWV1lQn3T_61L3XSjDEgGup_aSE7ZhpktnFFjaZt2fNS1_YZDw0HOHuQcPFWEpIduHzanssGUsIlYi-dHPWASVk9-xTtUxyCIUfTHd-dLN9zVy6PeSFArAa9clB_Mo5TDGzu54-EK5NkUg5vIqFRFdoYJYQP7XGtfdLJdGkyab4qHgyezpsnD3x_tdmbBGaVXxDgS5-froHJgnabb5PyhcKIvvrJxMGreClCSRSdfb0JV9FjMr_9Q"
+	token := "BQAmJGDyhpY8ucAaWV2EWg-plZFozoRwFtLgZV8iPIjFLpDSksCwUz6yyuCtCDTT1Ho6aV9PSutt9xT5Jwe8hU_R1jijIeZJ0yHlZGHbhqb_w32t5wpVxpWCzWO-KtyQkvoxK3BMo8jL7KyA9YgXsgcyJWtnye2TMTzHiQsfBB3Ef-IU42XolNTNz2YWspgdAkY0kaYAPqRPnEGk8rD8ZR-9IqfFSJlbET3WsDMCINEurugt9_Vy0qrsvt7bM2OaawvDKcsDvXCU-zXM5YQMxWd6XKIixg"
 	client := spotify.NewClient(token)
 	r, _ := client.Search.Get("Muse", "track,artist", 10, 0)
 	result, _ := json.Marshal(r)

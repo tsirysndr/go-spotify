@@ -17,6 +17,16 @@ type Artist struct {
 	Popularity   int          `json:"popularity,omitempty"`
 }
 
+type Artists struct {
+	Href     string   `json:"href,omitempty"`
+	Items    []Artist `json:"items,omitempty"`
+	Limit    int      `json:"limit,omitempty"`
+	Next     string   `json:"next,omitempty"`
+	Offset   int      `json:"offset,omitempty"`
+	Previous string   `json:"previous,omitempty"`
+	Total    int      `json:"total,omitempty"`
+}
+
 type ArtistParams struct {
 	IDs string `url:"ids,omitempty"`
 }
