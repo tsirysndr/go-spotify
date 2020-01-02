@@ -43,6 +43,16 @@ type Image struct {
 	Width  int    `json:"width,omitempty"`
 }
 
+type Albums struct {
+	Href     string  `json:"href,omitempty"`
+	Items    []Album `json:"items,omitempty"`
+	Limit    int     `json:"limit,omitempty"`
+	Next     string  `json:"next,omitempty"`
+	Offset   int     `json:"offset,omitempty"`
+	Previous string  `json:"previous,omitempty"`
+	Total    int     `json:"total,omitempty"`
+}
+
 type AlbumParams struct {
 	IDs string `url:"ids,omitempty"`
 }
