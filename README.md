@@ -41,6 +41,72 @@ client := spotify.NewClient("<YOUR TOKEN AUTHORIZATION>")
 result, err := client.Track.List("6rqhFgbbKwnb9MLmUQDhG6")
 ```
 
+## Coverage
+
+Currently the following services are supported:
+
+- [x] Search for an Item
+- [x] Get Audio Analysis for a Track
+- [x] Get Audio Features for Several Tracks
+- [x] Get Audio Features for a Track
+- [x] Get Several Tracks
+- [x] Get a Track
+- [ ] Get Current User's Profile
+- [x] Get a User's Profile
+- [ ] Remove Tracks from a Playlist
+- [x] Get a List of Current User's Playlists
+- [x] Get a Playlist's Tracks
+- [x] Get a Playlist
+- [x] Get a List of a User's Playlists
+- [ ] Add Tracks to a Playlist
+- [ ] Create a Playlist
+- [ ] Reorder or replace a Playlist's Tracks
+- [ ] Change a Playlist's Details
+- [ ] Get the Current User's Recently Played Tracks
+- [ ] Get Information About The User's Current Playback
+- [ ] Get a User's Available Devices
+- [ ] Get the User's Currently Playing Track
+- [ ] Skip User's Playback To Next Track
+- [ ] Skip User's Playback To Previous Track
+- [ ] Pause a User's Playback
+- [ ] Start/Resume a User's Playback
+- [ ] Set Repeat Mode On User's Playback
+- [ ] Seek To Position In Currently Playing Track
+- [ ] Toggle Shuffle For User's Playback
+- [ ] Transfer a User's Playback
+- [ ] Set Volume For User's Playback
+- [ ] Get User's Top Artists and Tracks
+- [ ] Remove Albums for Current User
+- [ ] Remove Tracks for Current User
+- [ ] Check Current User's Saved Albums
+- [ ] Check Current User's Saved Tracks
+- [ ] Get Current User's Saved Albums
+- [ ] Get Current User's Saved Tracks 
+- [ ] Save Albums for Current User
+- [ ] Save Tracks for Current User
+- [ ] Unfollow Artists or Users
+- [ ] Unfollow a Playlist
+- [ ] Check if Current User Follows Artists or Users
+- [ ] Get Followed Artists
+- [ ] Check if Users Follow a Playlist
+- [ ] Follow Artists or Users
+- [ ] Follow a Playlist
+- [ ] Get Available Genre Seeds 
+- [ ] Get a List of Browse Categories
+- [ ] Get a Single Browse Category
+- [ ] Get a Category's playlists
+- [ ] Get a List of Featured Playlists
+- [ ] Get a List of New Releases
+- [ ] Get Recommendations Based on Seeds
+- [x] Get an Artist's Albums
+- [x] Get an Artist's Related Artists
+- [x] Get an Artist's Top Tracks
+- [x] Get an Artist
+- [x] Get Several Artists
+- [x] Get an Album's Tracks
+- [x] Get an Album
+- [x] Get Several Albums
+
 ## Author
 
 👤 **Tsiry Sandratraina**
