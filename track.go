@@ -35,9 +35,15 @@ type TracksResult struct {
 
 func (s *TrackService) List(IDs string) (*TracksResult, error) {
 	params := &TrackParams{IDs: IDs}
-
 	var err error
 	res := &TracksResult{}
 	s.client.base.Get("tracks").QueryStruct(params).Receive(res, err)
+	return res, err
+}
+
+func (s *TrackService) Get(ID string) (*Track, error) {
+	var err error
+	res := new(Track)
+	s.client.base.Path("tracks/").Get(ID).Receive(res, err)
 	return res, err
 }
