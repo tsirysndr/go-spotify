@@ -87,3 +87,10 @@ func (s *TrackService) AudioFeaturesByTrackID(ID string) (*AudioFeatures, error)
 	s.client.base.Path("audio-features/").Get(ID).Receive(res, err)
 	return res, err
 }
+
+func (s *TrackService) AudioAnalysis(ID string) (*AudioAnalysis, error) {
+	var err error
+	res := new(AudioAnalysis)
+	s.client.base.Path("audio-analysis/").Get(ID).Receive(res, err)
+	return res, err
+}
