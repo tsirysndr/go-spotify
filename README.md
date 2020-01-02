@@ -41,7 +41,7 @@ client := spotify.NewClient("<YOUR TOKEN AUTHORIZATION>")
 result, err := client.Track.List("6rqhFgbbKwnb9MLmUQDhG6")
 ```
 
-## Coverage
+## ✨ Coverage
 
 Currently the following services are supported:
 
