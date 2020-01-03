@@ -62,10 +62,10 @@ Currently the following services are supported:
 - [ ] Create a Playlist
 - [ ] Reorder or replace a Playlist's Tracks
 - [ ] Change a Playlist's Details
-- [ ] Get the Current User's Recently Played Tracks
+- [x] Get the Current User's Recently Played Tracks
 - [ ] Get Information About The User's Current Playback
 - [ ] Get a User's Available Devices
-- [ ] Get the User's Currently Playing Track
+- [x] Get the User's Currently Playing Track
 - [ ] Skip User's Playback To Next Track
 - [ ] Skip User's Playback To Previous Track
 - [ ] Pause a User's Playback

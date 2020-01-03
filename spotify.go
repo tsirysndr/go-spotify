@@ -22,6 +22,7 @@ type Client struct {
 	Library  *LibraryService
 	Me       *MeService
 	Playlist *PlaylistService
+	Player   *PlayerService
 	Search   *SearchService
 	Track    *TrackService
 	User     *UserService
@@ -45,6 +46,7 @@ func NewClient(accessToken string) *Client {
 	c.Library = (*LibraryService)(&c.common)
 	c.Me = (*MeService)(&c.common)
 	c.Playlist = (*PlaylistService)(&c.common)
+	c.Player = (*PlayerService)(&c.common)
 	c.Search = (*SearchService)(&c.common)
 	c.Track = (*TrackService)(&c.common)
 	c.User = (*UserService)(&c.common)
