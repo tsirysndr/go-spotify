@@ -29,7 +29,7 @@ type Album struct {
 }
 
 type Copyright struct {
-	Text string `json:"album_type,omitempty"`
+	Text string `json:"text,omitempty"`
 	Type string `json:"type,omitempty"`
 }
 
