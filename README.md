@@ -67,7 +67,7 @@ Currently the following services are supported:
 - [x] Get a Playlist
 - [x] Get a List of a User's Playlists
 - [x] Add Tracks to a Playlist
-- [ ] Create a Playlist
+- [x] Create a Playlist
 - [ ] Reorder or replace a Playlist's Tracks
 - [ ] Change a Playlist's Details
 - [x] Get the Current User's Recently Played Tracks
