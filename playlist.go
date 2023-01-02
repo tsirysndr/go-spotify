@@ -1,6 +1,9 @@
 package spotify
 
-import "fmt"
+import (
+	"fmt"
+	"net/url"
+)
 
 type PlaylistService service
 
@@ -43,6 +46,16 @@ type Playlists struct {
 	Total    int        `json:"total,omitempty"`
 }
 
+type PlaylistAddTracks struct {
+	SnapshotID string `json:"snapshot_id"`
+}
+
+type CreatePlaylist struct {
+	Name        string `json:"name"`
+	Description string `json:"description"`
+	Public      bool   `json:"public"`
+}
+
 func (s *PlaylistService) Get(ID string) (*Playlist, error) {
 	var err error
 	res := new(Playlist)
@@ -81,5 +94,30 @@ func (s *PlaylistService) GetCurrentUserPlaylists(limit, offset int) (*Playlists
 	params := &PaginationParams{limit, offset}
 	res := new(Playlists)
 	s.client.base.Path("me/").Get("playlists").QueryStruct(params).Receive(res, err)
+	return res, err
+}
+
+func (s *PlaylistService) AddTracksToPlaylists(playlistID string, tracksIDS string) (*PlaylistAddTracks, error) {
+	var err error
+	res := new(PlaylistAddTracks)
+	tracks := fmt.Sprintf("playlists/%s/tracks?uris=%s", playlistID, url.QueryEscape(tracksIDS))
+	s.client.base.Post(tracks).Receive(res, err)
+
+	return res, err
+}
+
+func (s *PlaylistService) CreatePlaylist(userID string, name string, description string, public bool) (*CreatePlaylist, error) {
+	var err error
+	res := new(CreatePlaylist)
+	tracks := fmt.Sprintf("users/%s/playlists", userID)
+
+	newPlaylist := CreatePlaylist{
+		Name:        name,
+		Description: description,
+		Public:      public,
+	}
+
+	s.client.base.Post(tracks).BodyJSON(newPlaylist).Receive(res, err)
+
 	return res, err
 }
