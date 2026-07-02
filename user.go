@@ -34,6 +34,6 @@ type Followers struct {
 func (s *UserService) GetProfile(ID string) (*Profile, error) {
 	var err error
 	resp := new(Profile)
-	s.client.base.Path("users/").Get(ID).Receive(resp, err)
+	s.client.base.Path("users/").Get(ID).Receive(resp, &err)
 	return resp, err
 }

@@ -16,7 +16,7 @@ type Playlist struct {
 	ID            ID              `json:"id,omitempty"`
 	Images        []Image         `json:"images,omitempty"`
 	Name          string          `json:"name,omitempty"`
-	Owner         *Profile        `json:"profile,omitempty"`
+	Owner         *Profile        `json:"owner,omitempty"`
 	PrimaryColor  string          `json:"primary_color,omitempty"`
 	Public        bool            `json:"public,omitempty"`
 	SnapshotID    string          `json:"snapshot_id,omitempty"`
@@ -59,7 +59,7 @@ type CreatePlaylist struct {
 func (s *PlaylistService) Get(ID string) (*Playlist, error) {
 	var err error
 	res := new(Playlist)
-	s.client.base.Path("playlists/").Get(ID).Receive(res, err)
+	s.client.base.Path("playlists/").Get(ID).Receive(res, &err)
 	return res, err
 }
 
@@ -67,7 +67,7 @@ func (s *PlaylistService) GetCoverImages(ID string) (*[]Image, error) {
 	var err error
 	res := new([]Image)
 	playlists := fmt.Sprintf("playlists/%s/", ID)
-	s.client.base.Path(playlists).Get("images").Receive(res, err)
+	s.client.base.Path(playlists).Get("images").Receive(res, &err)
 	return res, err
 }
 
@@ -76,7 +76,7 @@ func (s *PlaylistService) GetTracks(ID string, limit, offset int) (*PlaylistTrac
 	params := &PaginationParams{limit, offset}
 	res := new(PlaylistTracks)
 	playlists := fmt.Sprintf("playlists/%s/", ID)
-	s.client.base.Path(playlists).Get("tracks").QueryStruct(params).Receive(res, err)
+	s.client.base.Path(playlists).Get("tracks").QueryStruct(params).Receive(res, &err)
 	return res, err
 }
 
@@ -85,7 +85,7 @@ func (s *PlaylistService) GetUserPlaylists(userID string, limit, offset int) (*P
 	params := &PaginationParams{limit, offset}
 	res := new(Playlists)
 	users := fmt.Sprintf("users/%s/", userID)
-	s.client.base.Path(users).Get("playlists").QueryStruct(params).Receive(res, err)
+	s.client.base.Path(users).Get("playlists").QueryStruct(params).Receive(res, &err)
 	return res, err
 }
 
@@ -93,7 +93,7 @@ func (s *PlaylistService) GetCurrentUserPlaylists(limit, offset int) (*Playlists
 	var err error
 	params := &PaginationParams{limit, offset}
 	res := new(Playlists)
-	s.client.base.Path("me/").Get("playlists").QueryStruct(params).Receive(res, err)
+	s.client.base.Path("me/").Get("playlists").QueryStruct(params).Receive(res, &err)
 	return res, err
 }
 
@@ -101,7 +101,7 @@ func (s *PlaylistService) AddTracksToPlaylists(playlistID string, tracksIDS stri
 	var err error
 	res := new(PlaylistAddTracks)
 	tracks := fmt.Sprintf("playlists/%s/tracks?uris=%s", playlistID, url.QueryEscape(tracksIDS))
-	s.client.base.Post(tracks).Receive(res, err)
+	s.client.base.Post(tracks).Receive(res, &err)
 
 	return res, err
 }
@@ -117,7 +117,7 @@ func (s *PlaylistService) CreatePlaylist(userID string, name string, description
 		Public:      public,
 	}
 
-	s.client.base.Post(tracks).BodyJSON(newPlaylist).Receive(res, err)
+	s.client.base.Post(tracks).BodyJSON(newPlaylist).Receive(res, &err)
 
 	return res, err
 }

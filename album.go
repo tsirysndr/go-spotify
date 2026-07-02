@@ -69,7 +69,7 @@ type AlbumsResult struct {
 func (s *AlbumService) Get(ID string) (*Album, error) {
 	var err error
 	res := new(Album)
-	s.client.base.Path("albums/").Get(ID).Receive(res, err)
+	s.client.base.Path("albums/").Get(ID).Receive(res, &err)
 	return res, err
 }
 
@@ -77,7 +77,7 @@ func (s *AlbumService) List(IDs string) (*AlbumsResult, error) {
 	params := &AlbumParams{IDs: IDs}
 	var err error
 	res := &AlbumsResult{}
-	s.client.base.Get("albums").QueryStruct(params).Receive(res, err)
+	s.client.base.Get("albums").QueryStruct(params).Receive(res, &err)
 	return res, err
 }
 
@@ -86,6 +86,6 @@ func (s *AlbumService) GetTracks(ID string, limit, offset int) (*Tracks, error) 
 	params := &PaginationParams{limit, offset}
 	res := new(Tracks)
 	album := fmt.Sprintf("albums/%s/", ID)
-	s.client.base.Path(album).Get("tracks").QueryStruct(params).Receive(res, err)
+	s.client.base.Path(album).Get("tracks").QueryStruct(params).Receive(res, &err)
 	return res, err
 }

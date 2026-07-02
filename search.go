@@ -19,6 +19,6 @@ func (s *SearchService) Get(query, filter string, limit, offset int) (*SearchRes
 	var err error
 	params := &SearchParams{query, filter, limit, offset}
 	res := new(SearchResult)
-	s.client.base.Get("search").QueryStruct(params).Receive(res, err)
+	s.client.base.Get("search").QueryStruct(params).Receive(res, &err)
 	return res, err
 }

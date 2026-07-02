@@ -50,14 +50,14 @@ func (s *ArtistService) List(IDs string) (*ArtistsResult, error) {
 	params := &ArtistParams{IDs: IDs}
 	var err error
 	res := &ArtistsResult{}
-	s.client.base.Get("artists").QueryStruct(params).Receive(res, err)
+	s.client.base.Get("artists").QueryStruct(params).Receive(res, &err)
 	return res, err
 }
 
 func (s *ArtistService) Get(ID string) (*Artist, error) {
 	var err error
 	res := new(Artist)
-	s.client.base.Path("artists/").Get(ID).Receive(res, err)
+	s.client.base.Path("artists/").Get(ID).Receive(res, &err)
 	return res, err
 }
 
@@ -66,7 +66,7 @@ func (s *ArtistService) GetTopTracks(ID, country string) (*TracksResult, error) 
 	res := new(TracksResult)
 	params := &CountryParams{country}
 	artists := fmt.Sprintf("artists/%s/", ID)
-	s.client.base.Path(artists).Get("top-tracks").QueryStruct(params).Receive(res, err)
+	s.client.base.Path(artists).Get("top-tracks").QueryStruct(params).Receive(res, &err)
 	return res, err
 }
 
@@ -75,7 +75,7 @@ func (s *ArtistService) GetAlbums(ID, includeGroups, market string, limit, offse
 	res := new(Albums)
 	params := &ArtistAlbumsParams{includeGroups, market, limit, offset}
 	artists := fmt.Sprintf("artists/%s/", ID)
-	s.client.base.Path(artists).Get("albums").QueryStruct(params).Receive(res, err)
+	s.client.base.Path(artists).Get("albums").QueryStruct(params).Receive(res, &err)
 	return res, err
 }
 
@@ -83,6 +83,6 @@ func (s *ArtistService) RelatedArtists(ID string) (*ArtistsResult, error) {
 	var err error
 	res := new(ArtistsResult)
 	artists := fmt.Sprintf("artists/%s/", ID)
-	s.client.base.Path(artists).Get("related-artists").Receive(res, err)
+	s.client.base.Path(artists).Get("related-artists").Receive(res, &err)
 	return res, err
 }

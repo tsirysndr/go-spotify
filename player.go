@@ -24,7 +24,7 @@ type RecentlyPlayedTracks struct {
 		Before string `json:"before,omitempty"`
 	} `json:"cursors,omitempty"`
 	Limit int    `json:"limit,omitempty"`
-	Href  string `json:"href,omitmepty"`
+	Href  string `json:"href,omitempty"`
 }
 
 type Context struct {
@@ -42,14 +42,14 @@ type Actions struct {
 
 type RecentlyPlayedTracksParams struct {
 	Type  string `url:"type"`
-	Limit int    `url:"type"`
+	Limit int    `url:"limit"`
 	After int    `url:"after"`
 }
 
 func (s *PlayerService) GetCurrentlyPlaying() (*PlayingTrack, error) {
 	var err error
 	res := new(PlayingTrack)
-	s.client.base.Path("me/player/").Get("currently-playing").Receive(res, err)
+	s.client.base.Path("me/player/").Get("currently-playing").Receive(res, &err)
 	return res, err
 }
 
@@ -61,6 +61,6 @@ func (s *PlayerService) GetRecentlyPlayed(filter string, limit, after int) (*Rec
 		after,
 	}
 	res := new(RecentlyPlayedTracks)
-	s.client.base.Path("me/player/").Get("recently-played").QueryStruct(params).Receive(res, err)
+	s.client.base.Path("me/player/").Get("recently-played").QueryStruct(params).Receive(res, &err)
 	return res, err
 }
