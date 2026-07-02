@@ -1,7 +1,7 @@
 package spotify
 
 type AudioFeatures struct {
-	Danceability     float32 `json:"danceablity,omitempty"`
+	Danceability     float32 `json:"danceability,omitempty"`
 	Energy           float32 `json:"energy,omitempty"`
 	Key              int     `json:"key,omitempty"`
 	Loudness         float32 `json:"loudness,omitempty"`
